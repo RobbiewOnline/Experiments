@@ -5,37 +5,35 @@
     x:Class="StaticCarousel.RobbieWOnlineHeader">
     <ContentView.Content>
         <StackLayout>
-            <Frame BackgroundColor="#2196F3" Padding="{OnPlatform iOS='5,20,5,5'}" Margin="{OnPlatform iOS='0,0,0,-6'}" CornerRadius="0">
-                <StackLayout Orientation="Vertical">
-                    <Label HorizontalTextAlignment="Center" TextColor="White" FontSize="24">
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <FormattedString.Spans>
-                                    <Span Text="Twitter: @robbiewOnline" FontAttributes="Bold"/>
-                                    <Span Text=" 🔗"/>
-                                </FormattedString.Spans>
-                            </FormattedString>
-                        </Label.FormattedText>
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding TapCommand}" CommandParameter="https://twitter.com/robbiewonline" />
-                        </Label.GestureRecognizers>
-                    </Label>
-                    <Label FontSize="16" HorizontalTextAlignment="Center">
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <FormattedString.Spans>
-                                    <Span Text="Me: "/>
-                                    <Span Text="https://robbiew.online" FontAttributes="Bold"/>
-                                    <Span Text=" 🔗"/>
-                                </FormattedString.Spans>
-                            </FormattedString>
-                        </Label.FormattedText>
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding TapCommand}" CommandParameter="https://robbiew.online" />
-                        </Label.GestureRecognizers>
-                    </Label>
-                </StackLayout>
-            </Frame>
+            <StackLayout BackgroundColor="#2196F3" Padding="{OnPlatform iOS='5,20,5,5'}" Margin="{OnPlatform iOS='0,0,0,-6'}" Orientation="Vertical">
+                <Label HorizontalTextAlignment="Center" TextColor="White" FontSize="24">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Twitter: @robbiewOnline" FontAttributes="Bold"/>
+                                <Span Text=" 🔗"/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding TapCommand}" CommandParameter="https://twitter.com/robbiewonline" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label FontSize="16" HorizontalTextAlignment="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Me: "/>
+                                <Span Text="https://robbiew.online" FontAttributes="Bold"/>
+                                <Span Text=" 🔗"/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding TapCommand}" CommandParameter="https://robbiew.online" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
         </StackLayout>
     </ContentView.Content>
 </ContentView>
