@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:staticcarousel="clr-namespace:StaticCarousel"
+             x:Class="StaticCarousel.MainPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="Page1TemplateKey">
+                <Label Text="Page 1"/>
+            </DataTemplate>
+            <DataTemplate x:Key="Page2TemplateKey">
+                <Label Text="Page 2"/>
+            </DataTemplate>
+            <DataTemplate x:Key="Page3TemplateKey">
+                <Label Text="Page 3"/>
+            </DataTemplate>
+            <staticcarousel:CarouselTemplateSelector x:Key="PageTemplateSelector"
+                Page1Template="{StaticResource Page1TemplateKey}"
+                Page2Template="{StaticResource Page2TemplateKey}"
+                Page3Template="{StaticResource Page3TemplateKey}"
+                />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
+        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
+        <Label FontSize="16" Padding="30,24,30,0">
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+                        <Span Text="Learn more at "/>
+                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <CarouselView ItemsSource="{Binding Pages}"
+                      ItemTemplate="{StaticResource PageTemplateSelector}"
+                      IndicatorView="indicatorView"
+                      BackgroundColor="Purple">
+
+
+        </CarouselView>
+
+
+        <IndicatorView x:Name="indicatorView"
+                   IndicatorColor="LightGray"
+                   SelectedIndicatorColor="DarkGray"
+                   HorizontalOptions="Center" />
+    </StackLayout>
+
+</ContentPage>
+
