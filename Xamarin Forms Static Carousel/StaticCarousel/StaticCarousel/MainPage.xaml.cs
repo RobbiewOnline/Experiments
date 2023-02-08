@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace StaticCarousel
@@ -12,6 +14,7 @@ namespace StaticCarousel
     {
 
         public List<CarouselPageModel> Pages { get; set; } = new List<CarouselPageModel>();
+        public ICommand TapCommand => new Command<string>(async (url) => await Launcher.OpenAsync(url));
 
         public MainPage()
         {

@@ -1,26 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:staticcarousel="clr-namespace:StaticCarousel"
-             x:Class="StaticCarousel.MainPage">
+             xmlns:staticcarousel="clr-namespace:StaticCarousel"             
+             x:Class="StaticCarousel.MainPage"
+            xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+            ios:Page.UseSafeArea="false">
 
-    <ContentPage.Resources>
+    <StackLayout Padding="0" Margin="0" BackgroundColor="Yellow">
+
+        <staticcarousel:RobbieWOnlineHeader/>
+
+        <CarouselView ItemsSource="{Binding Pages}"
+                      ItemTemplate="{StaticResource PageTemplateSelector}"
+                      IndicatorView="indicatorView"
+                      BackgroundColor="Purple"
+                      Margin="0,0,0,0"/>
+
+        <IndicatorView x:Name="indicatorView"
+                   IndicatorColor="LightGray"
+                   SelectedIndicatorColor="#2196F3"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,16"/>
+    </StackLayout>
+
+        <ContentPage.Resources>
         <ResourceDictionary>
             <DataTemplate x:Key="Page1TemplateKey">
-                <StackLayout Orientation="Vertical" BackgroundColor="DarkRed"
-                             Padding="12,0,12,12">
+                <StackLayout Orientation="Vertical" Padding="12,0,12,12" Margin="0" BackgroundColor="DarkRed">
                     <Label VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" Text="{Binding Description}" TextColor="WhiteSmoke"/>
                     <BoxView VerticalOptions="End" HeightRequest="3" Color="White" CornerRadius="3" Margin="12,0,12,12"/>
                     <Label VerticalOptions="End" Text="This proves you can have static content within the Xamarin Forms Carousel, but unfortunately you need to use a custom DataTemplateSelector" TextColor="WhiteSmoke"/>
                 </StackLayout>
             </DataTemplate>
             <DataTemplate x:Key="Page2TemplateKey">
-                <Label Text="{Binding Description}" BackgroundColor="DarkGreen" TextColor="WhiteSmoke"
+                <Label Text="{Binding Description}" Padding="12,0,12,12" BackgroundColor="DarkGreen" TextColor="WhiteSmoke"
                     HorizontalTextAlignment="Center"
                     VerticalTextAlignment="Center"/>
             </DataTemplate>
             <DataTemplate x:Key="Page3TemplateKey">
-                <Label Text="{Binding Description}" BackgroundColor="DarkBlue" TextColor="WhiteSmoke"
+                <Label Text="{Binding Description}" Padding="12,0,12,12" BackgroundColor="DarkBlue" TextColor="WhiteSmoke"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"/>
             </DataTemplate>
@@ -31,34 +49,5 @@
                 />
         </ResourceDictionary>
     </ContentPage.Resources>
-
-    <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="@RobbiewOnline" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-        </Frame>
-        <Label FontSize="16" Padding="30,24,30,0">
-            <Label.FormattedText>
-                <FormattedString>
-                    <FormattedString.Spans>
-                        <Span Text="My Profile "/>
-                        <Span Text="https://robbiew.online" FontAttributes="Bold"/>
-                    </FormattedString.Spans>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
-
-        <CarouselView ItemsSource="{Binding Pages}"
-                      ItemTemplate="{StaticResource PageTemplateSelector}"
-                      IndicatorView="indicatorView"
-                      BackgroundColor="Purple"/>
-
-        <IndicatorView x:Name="indicatorView"
-                   IndicatorColor="LightGray"
-                   SelectedIndicatorColor="DarkGray"
-                   HorizontalOptions="Center"
-                   Margin="0,0,0,32"
-                   />
-    </StackLayout>
-
 </ContentPage>
 
