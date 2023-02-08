@@ -12,7 +12,7 @@ namespace StaticCarousel
 
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
         {
-            int pageNumber = ((CarouselPageModel)item).pageNumber;
+            int pageNumber = ((CarouselPageModel)item).PageNumber;
 
             if (pageNumber == 1)
             {

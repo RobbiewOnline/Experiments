@@ -7,13 +7,22 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <DataTemplate x:Key="Page1TemplateKey">
-                <Label Text="Page 1"/>
+                <StackLayout Orientation="Vertical" BackgroundColor="DarkRed"
+                             Padding="12,0,12,12">
+                    <Label VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" Text="{Binding Description}" TextColor="WhiteSmoke"/>
+                    <BoxView VerticalOptions="End" HeightRequest="3" Color="White" CornerRadius="3" Margin="12,0,12,12"/>
+                    <Label VerticalOptions="End" Text="This proves you can have static content within the Xamarin Forms Carousel, but unfortunately you need to use a custom DataTemplateSelector" TextColor="WhiteSmoke"/>
+                </StackLayout>
             </DataTemplate>
             <DataTemplate x:Key="Page2TemplateKey">
-                <Label Text="Page 2"/>
+                <Label Text="{Binding Description}" BackgroundColor="DarkGreen" TextColor="WhiteSmoke"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"/>
             </DataTemplate>
             <DataTemplate x:Key="Page3TemplateKey">
-                <Label Text="Page 3"/>
+                <Label Text="{Binding Description}" BackgroundColor="DarkBlue" TextColor="WhiteSmoke"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"/>
             </DataTemplate>
             <staticcarousel:CarouselTemplateSelector x:Key="PageTemplateSelector"
                 Page1Template="{StaticResource Page1TemplateKey}"
@@ -25,16 +34,14 @@
 
     <StackLayout>
         <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+            <Label Text="@RobbiewOnline" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
         </Frame>
-        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
-        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
         <Label FontSize="16" Padding="30,24,30,0">
             <Label.FormattedText>
                 <FormattedString>
                     <FormattedString.Spans>
-                        <Span Text="Learn more at "/>
-                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
+                        <Span Text="My Profile "/>
+                        <Span Text="https://robbiew.online" FontAttributes="Bold"/>
                     </FormattedString.Spans>
                 </FormattedString>
             </Label.FormattedText>
@@ -43,16 +50,14 @@
         <CarouselView ItemsSource="{Binding Pages}"
                       ItemTemplate="{StaticResource PageTemplateSelector}"
                       IndicatorView="indicatorView"
-                      BackgroundColor="Purple">
-
-
-        </CarouselView>
-
+                      BackgroundColor="Purple"/>
 
         <IndicatorView x:Name="indicatorView"
                    IndicatorColor="LightGray"
                    SelectedIndicatorColor="DarkGray"
-                   HorizontalOptions="Center" />
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,32"
+                   />
     </StackLayout>
 
 </ContentPage>
